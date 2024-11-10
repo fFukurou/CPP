@@ -8,6 +8,24 @@ public:
 		LevelError = 0, LevelWarning, LevelInfo
 	};
 
+	// CONSTRUCTORS
+	Log()
+	{
+		std::cout << "----------- Log initialized ------------" << std::endl;
+	}
+
+	Log(Level level)
+	{
+		std::cout << "----------- Log initialized ------------" << std::endl;
+		this->m_LogLevel = level;
+	}
+
+	// DESTRUCTORS
+	~Log()
+	{
+		std::cout << "Destroyed Log Entity" << std::endl;
+	}
+
 
 private:
 	Level m_LogLevel = LevelInfo;
@@ -39,14 +57,13 @@ public:
 
 
 
-
-
 int main()
 {
-	Log log;
-	log.SetLevel(Log::LevelError);
-	log.Warn("Hello");
+	Log log(Log::LevelError);
+	//log.SetLevel(Log::LevelError);
+
 	log.Error("Hello");
+	log.Warn("Hello");
 	log.Info("Hello");
 	//std::cin.get();
 
